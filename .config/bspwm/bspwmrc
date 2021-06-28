@@ -4,7 +4,7 @@ killall sxhkd; sxhkd &
 killall picom; picom -b --experimental-backends &
 killall polybar; sh ~/.config/polybar/launch.sh --forest
 alacritty &
-#~/.fehbg
+~/.fehbg
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 

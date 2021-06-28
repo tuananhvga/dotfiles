@@ -1,1 +1,4 @@
 .local/share/xorg
+.config/pulse
+.config/htop
+.config/neofetch
