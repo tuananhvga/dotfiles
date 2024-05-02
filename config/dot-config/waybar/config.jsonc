@@ -1,0 +1,257 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "mod": "dock",
+  "exclusive": true,
+  "passthrough": false,
+  "gtk-layer-shell": true,
+  "height": 0,
+  "modules-left": [
+    "clock",
+    "idle_inhibitor",
+    "wlr/taskbar",
+    // "hyprland/window",
+    "mpris"
+//  "temperature",
+//  "custom/weather",
+  ],
+  "modules-center": [
+    "hyprland/workspaces",
+  ],
+  "modules-right": [
+//  "bluetooth",
+    "network",
+    "tray",
+    "cpu",
+    "memory",
+    "pulseaudio",
+    "pulseaudio#microphone",
+    "battery",
+    "custom/notification",
+    "backlight",
+  ],
+ 
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "disable-markup" : false,
+    "all-outputs": true,
+    "format":"{icon}",
+  },
+  "hyprland/window": {
+    "format": "{}",
+    "max-length": 120
+  },
+
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 18,
+    "icon-theme": "Papirus",
+    "spacing": 0,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close",
+    "ignore-list": [
+      "Alacritty"
+    ],
+    "app_ids-mapping": {
+      "firefoxdeveloperedition": "firefox-developer-edition"
+    }
+  },
+
+  "tray": {
+    "icon-size": 18,
+    "spacing": 5
+  },
+
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "start-activated": true,
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+      }
+  },
+
+  "clock": {
+    "interval": 1,
+    // "format-alt": " {:%e %b %Y}", // Icon: calendar-alt
+    "format": "{:%e %b %Y %H:%M:%S} ",
+    "tooltip-format": "{:%e %B %Y}"
+  },
+
+  "network": {
+    "interval": 1,
+    "tooltip": true,
+//        "format-wifi": " ",
+//        "format-ethernet": "󰈀 ",
+    "format-wifi": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+    "format-ethernet": "<span foreground='#99ffdd'> {bandwidthDownBytes}</span> <span foreground='#ffcc66'> {bandwidthUpBytes}</span>",
+    "tooltip-format": "Network: <big><b>{essid}</b></big>\nSignal strength: <b>{signaldBm}dBm ({signalStrength}%)</b>\nFrequency: <b>{frequency}MHz</b>\nInterface: <b>{ifname}</b>\nIP: <b>{ipaddr}/{cidr}</b>\nGateway: <b>{gwaddr}</b>\nNetmask: <b>{netmask}</b>",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": " 󰖪 ",
+    "tooltip-format-disconnected": "Disconnected",
+  },
+//  "bluetooth": {
+//    "exec": "~/.config/script/rofi-bluetooth-menu --status",
+//    "format-disabled": "", // an empty format will hide the module
+//    "format-connected": " {num_connections}",
+//    "tooltip-format": "{device_alias}",
+//    "tooltip-format-connected": " {device_enumerate}",
+//    "tooltip-format-enumerate-connected": "{device_alias}",
+//    "on-click-right": "~/.config/script/rofi-bluetooth-menu"
+//  },
+
+  "memory": {
+    "interval": 1,
+    "format": "  {}%", // Icon: memory
+    "tooltip": true,
+    "tooltip-format": "Memory - {used:0.1f}GB used",
+    "on-click": "alacritty -e 'btm'", 
+    "states": {
+        "warning": 70,
+        "critical": 90
+    }
+  },
+  "cpu": {
+      "interval": 5,
+        "format": "  {usage}%", // Icon: microchip
+        "states": {
+            "warning": 70,
+            "critical": 90,
+        },
+        "on-click": "alacritty -e btm",
+  },
+
+  "disk": {
+    "interval": 1,
+    "format": "󰋊 {percentage_used}%",
+    "path": "/",
+    "format-alt-click": "click-right",
+    "format-alt": "󰋊 {percentage_used}%",
+    "tooltip": true,
+    "tooltip-format": "Disk - {used} used out of {total} on {path} ({percentage_used}%)",
+    "on-click": "gnome-system-monitor"
+  },
+
+  "temperature": {
+    "interval": 1,
+    "thermal-zone": 0,
+    "format": " {temperatureC}°C",
+    "critical-threshold": 80,
+    "format-critical": " {temperatureC}°C",
+    "on-click": "gnome-system-monitor"
+  },
+//  "custom/weather": {
+//    "tooltip": true,
+//    "format": "{}",
+//    "interval": 60,
+//    "exec": "~/.config/script/waybar-wttr.py",
+//    "return-type": "json"
+//  },
+//  "custom/update": {
+//    "format": "{}",
+//    "interval": 60,
+//    "exec": "~/.config/script/update",
+//    "on-click": "~/.config/script/update update",
+//    "tooltip": false
+//  },
+  "battery": {
+    "states": {
+      "good": 95,
+      "warning": 30,
+      "critical": 20
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{time} {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": " Muted",
+    "on-click": "~/.config/script/volume --toggle",
+    "on-click-right": "pavucontrol -t 3",
+    "on-scroll-up": "~/.config/script/volume --inc",
+    "on-scroll-down": "~/.config/script/volume --dec",
+    "scroll-step": 5,
+    "format-icons": {
+      "headphone": "",
+      "hands-free": "",
+      "headset": "",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": ["", "", ""]
+    },
+    "tooltip": true,
+    "tooltip-format": "{icon} at {volume}%"
+  },
+
+  "pulseaudio#microphone": {
+    "format": "{format_source}",
+    "format-source": " {volume}%",
+    "format-source-muted": " Muted",
+    "on-click": "~/.config/script/volume --toggle-mic",
+    "on-scroll-up": "~/.config/script/volume --mic-inc",
+    "on-scroll-down": "~/.config/script/volume --mic-dec",
+    "scroll-step": 5,
+    "tooltip": false,
+//    "tooltip-format": " at {volume}%"
+  },
+
+  "mpris": {
+    "format": "{player_icon} {dynamic}",
+    "format-paused": "{status_icon} <i>{dynamic}</i>",
+    "player-icons": {
+      "default": "",
+      "mpv": "🎵"
+    },
+    "status-icons": {
+      "paused": ""
+    },
+    "interval": 1,
+    "max-length": 60
+  },
+
+  "backlight": {
+    "device": "radeon_bl0",
+    "format": "{icon} {percent}%",
+    "tooltip": false,
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+    "on-scroll-up": "~/.config/script/brightness --inc",
+    "on-scroll-down": "~/.config/script/brightness --dec",
+    "min-length": 6,
+    "on-click": "killall wlsunset",
+    "on-click-right": "wlsunset -t 4500 -T 5500"
+  },
+
+ "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󰂚<span foreground='#F7768E'><sup></sup></span>",
+      "none": "󰂚",
+      "dnd-notification": "󰂛<span foreground='#F7768E'><sup></sup></span>",
+      "dnd-none": "󰂛",
+      "inhibited-notification": "󰂚<span foreground='#F7768E'><sup></sup></span>",
+      "inhibited-none": "󰂚",
+      "dnd-inhibited-notification": "󰂛<span foreground='#F7768E'><sup></sup></span>",
+      "dnd-inhibited-none": "󰂛"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "sleep 0.1 && swaync-client -swb",
+    "on-click": "sleep 0.1 && swaync-client -t -sw",
+    "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+    "escape": true
+  },
+
+ "custom/power": {
+   "format": "  ",
+   "tooltip": false,
+   "on-click": "exec ~/.config/script/power-menu.sh"
+  }
+
+}

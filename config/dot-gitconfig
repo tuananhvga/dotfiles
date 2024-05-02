@@ -1,0 +1,5 @@
+[user]
+	email = tuananh.vga@gmail.com
+	name = Unicatevn
+[pull]
+	rebase = true

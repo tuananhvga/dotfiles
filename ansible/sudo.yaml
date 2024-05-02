@@ -1,0 +1,75 @@
+- hosts: localhost
+  tasks:
+    - name: Install dev packages
+      community.general.pacman:
+        name:
+          - neovim
+          - base-devel
+          - ripgrep
+          - openssh
+          - go
+          - wget
+          - tree-sitter
+        state: present
+    - name: Install home packages
+      community.general.pacman:
+        name:
+          - stow
+          - firefox
+          - man
+          - tree
+          - busybox
+          # needed for fnm
+          - unzip
+          - fd
+          - fzf
+          - tmux
+          - thunar
+          - ffmpeg
+          - mpv
+          - jq
+          - fcitx5
+          - fcitx5-unikey
+        state: present
+    - name: Install sounds
+      community.general.pacman:
+        name:
+          - pipewire
+          - pipewire-pulse
+          - pipewire-audio
+          - pamixer
+          - blueman
+        state: present
+    - name: Install hyprland
+      community.general.pacman:
+        name:
+          - hyprland
+          - waybar
+          - wofi
+          - alacritty
+          - brightnessctl
+          - dunst
+          - libnotify
+          - mpd
+          - playerctl
+          - bottom
+          - xdg-desktop-portal-hyprland
+          - hyprlock
+          - hypridle
+          - grim
+          - slurp
+          - wl-clipboard
+        state: present
+    - name: Install hack nerd fonts
+      ansible.builtin.shell:
+        creates: /usr/share/fonts/HackNerdFont-Regular.ttf
+        cmd: curl -L "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip"
+          | busybox unzip -d /usr/share/fonts -
+    - name: Install fira code nerd fonts
+      ansible.builtin.shell:
+        creates: /usr/share/fonts/FiraCodeNerdFont-Regular.ttf
+        cmd: curl -L "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/FiraCode.zip"
+          | busybox unzip -d /usr/share/fonts -
+    - name: Refresh font cache
+      ansible.builtin.shell:
+        cmd: fc-cache -fv

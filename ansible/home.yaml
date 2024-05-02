@@ -1,0 +1,34 @@
+- hosts: localhost
+  tasks:
+    - name: Install oh my zsh
+      ansible.builtin.shell:
+        cmd: sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+        creates: ~/.oh-my-zsh
+    - name: Git checkout yay
+      ansible.builtin.git:
+        repo: https://aur.archlinux.org/yay.git
+        dest: /tmp/yay
+    - name: Install yay
+      ansible.builtin.shell:
+        cmd: makepkg -si --noconfirm
+        chdir: /tmp/yay
+    - name: Remove temporary yay files
+      ansible.builtin.shell:
+        cmd: rm -rf /tmp/yay
+        chdir: /tmp/yay
+        removes: /tmp/yay
+    - name: Update yay
+      ansible.builtin.shell:
+        cmd: yay
+    - name: Install sway aur
+      community.general.pacman:
+        name:
+          - swaync
+        executable: yay
+        state: present
+    - name: Install fnm
+      ansible.builtin.shell:
+        cmd: curl -fsSL https://fnm.vercel.app/install | bash
+    - name: Install node lts
+      ansible.builtin.shell:
+        cmd: source ~/.zshrc && fnm install --lts
