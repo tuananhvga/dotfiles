@@ -30,6 +30,7 @@ return {
     vim.keymap.set('n', '<leader>ft', builtin.treesitter, { desc = "Telescope: Treesitter" })
     vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = "Telescope: Buffers" })
     vim.keymap.set('n', '<leader>fa', builtin.builtin, { desc = "Telescope: Arbitrary" })
+    vim.keymap.set('n', '<leader>fc', builtin.command_history, { desc = "Telescope: Command History" })
     vim.keymap.set('n', 'gr', builtin.lsp_references, { desc = "Telescope: LSP References" })
     vim.keymap.set("n", "<leader>u", "<cmd>Telescope undo<cr>", { desc = "Telescope: Undo" })
   end
