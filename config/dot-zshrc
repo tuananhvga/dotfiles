@@ -109,3 +109,5 @@ export PATH="$HOME/.config/script:$PATH"
 export PATH="/home/vgarch/.local/share/fnm:$PATH"
 export EDITOR=nvim
 eval "`fnm env`"
+
+alias gcr='git checkout $(git branch -r | fzf | awk -F \/ "{print \$2}")'
