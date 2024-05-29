@@ -10,6 +10,7 @@ vim.api.nvim_set_keymap('n', ']q', '<cmd>cn<CR>',
 vim.api.nvim_set_keymap('n', '[q', '<cmd>cp<CR>', { noremap = true, silent = true, desc = "Go to next quickfix item" })
 
 -- Diff keymap
+vim.api.nvim_set_keymap('n', '<leader>gw', '<cmd>Gwrite<CR>', { noremap = true, silent = true, desc = "Git write" })
 vim.api.nvim_set_keymap('n', '<C-g>', '<cmd>Gvdiffsplit!<CR>', { noremap = true, silent = true, desc = "Three ways git diff" })
 vim.keymap.set('n', '<leader>dp', function ()
   vim.cmd('diffput')
