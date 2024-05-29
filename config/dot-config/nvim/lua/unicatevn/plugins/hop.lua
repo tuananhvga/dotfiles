@@ -3,7 +3,7 @@ return {
   branch = 'v2',
   config = function(_)
     local hop = require('hop')
-    hop.setup { keys = 'etovxqpdygfblzhckisuran' }
+    hop.setup { keys = 'qazwsxedcrfvujmikolp' }
     vim.keymap.set('', '<leader>w', function()
       hop.hint_words({ current_line_only = false })
     end, { remap = true, desc = 'Hop: Words' })
