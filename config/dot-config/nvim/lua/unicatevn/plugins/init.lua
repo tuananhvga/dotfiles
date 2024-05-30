@@ -14,6 +14,7 @@ return {
   require("unicatevn.plugins.autopairs"),
   require("unicatevn.plugins.trouble"),
   require("unicatevn.plugins.treesj"),
+  require("unicatevn.plugins.dadbod"),
   'nvim-treesitter/playground',
   'windwp/nvim-ts-autotag',
   -- 'rafamadriz/neon',
