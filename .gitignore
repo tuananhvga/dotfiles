@@ -1,3 +1,4 @@
 config/dot-config/nvim/lazy-lock.json
 config/dot-config/hypr/env.conf
 config/dot-config/github-copilot/apps.json
+config/dot-config/tmux/plugins/
