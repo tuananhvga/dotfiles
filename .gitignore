@@ -2,3 +2,4 @@ config/dot-config/nvim/lazy-lock.json
 config/dot-config/hypr/env.conf
 config/dot-config/github-copilot/apps.json
 config/dot-config/tmux/plugins/
+config/dot-config/fcitx5/conf/cached_layouts
