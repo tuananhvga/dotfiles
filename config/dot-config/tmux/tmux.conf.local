@@ -60,6 +60,13 @@ set -g @tmux2k-show-fahrenheit false
 ################################################################################
 set -g @plugin 'laktak/extrakto'
 set -g @extrakto_grab_area 'recent'
+set -g @extrakto_filter_order 'line all'
+
+################################################################################
+# Finger section
+################################################################################
+set -g @plugin 'Morantron/tmux-fingers'
+set -g @fingers-key f
 
 # : << EOF
 # https://github.com/gpakosz/.tmux
