@@ -1,4 +1,4 @@
-return {
+local config = {
   'nvim-tree/nvim-tree.lua',
   dependencies = {
     'nvim-tree/nvim-web-devicons',     -- optional
@@ -30,3 +30,5 @@ return {
     vim.keymap.set('n', '<leader>n', toggle_nvim_tree, { desc = "nvim-tree: Toggle" })
   end
 }
+
+return {}
