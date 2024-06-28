@@ -111,3 +111,11 @@ export EDITOR=nvim
 eval "`fnm env`"
 
 alias gcr='git checkout $(git branch -r | fzf | awk -F \/ "{print \$2}")'
+
+# pnpm
+export PNPM_HOME="/home/vgarch/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
