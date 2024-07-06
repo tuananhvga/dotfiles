@@ -118,8 +118,8 @@ esac
 # pnpm end
 
 # fnm
-FNM_PATH="~/.local/share/fnm"
+FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
-  export PATH="~/.local/share/fnm:$PATH"
+  export PATH="$HOME/.local/share/fnm:$PATH"
   eval "`fnm env`"
 fi
