@@ -29,5 +29,8 @@ vim.keymap.set('n', '<leader>dj', function ()
   vim.cmd('diffupdate')
 end, { desc = "Diff get merge branch" })
 
+vim.keymap.set('n', '<leader>py', function() vim.fn.setreg('+', vim.fn.expand('%:p')) end, {desc = 'Copy file path'} )
+vim.keymap.set('n', '<leader>dy', function() vim.fn.setreg('+', vim.fn.expand('%:p:h')) end, {desc = 'Copy directory path'} )
+
 -- Open tmux sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>", { desc = "Open tmux sessionizer" })
