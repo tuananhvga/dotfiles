@@ -2,15 +2,15 @@ return {
   'neovim/nvim-lspconfig',
   dependencies = {
     -- LSP Support
-    {     -- Optional
+    { -- Optional
       'williamboman/mason.nvim',
     },
-    { 'williamboman/mason-lspconfig.nvim' },     -- Optional
+    { 'williamboman/mason-lspconfig.nvim' }, -- Optional
 
     -- Autocompletion
-    { 'hrsh7th/nvim-cmp' },         -- Required
-    { 'hrsh7th/cmp-nvim-lsp' },     -- Required
-    { 'L3MON4D3/LuaSnip' },         -- Required
+    { 'hrsh7th/nvim-cmp' },     -- Required
+    { 'hrsh7th/cmp-nvim-lsp' }, -- Required
+    { 'L3MON4D3/LuaSnip' },     -- Required
   },
   config = function()
     -- note: diagnostics are not exclusive to lsp servers
@@ -50,7 +50,9 @@ return {
 
     require('mason').setup({})
     require('mason-lspconfig').setup({
-      ensure_installed = {},
+      ensure_installed = {
+        'lua_ls', 'clangd', 'bashls', 'tsserver', 'bufls', 'html', 'eslint', 'gopls'
+      },
       handlers = {
         default_setup,
       },
