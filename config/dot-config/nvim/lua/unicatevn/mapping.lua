@@ -6,8 +6,11 @@ vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', '<leader>y', '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>Y', '"+yg_', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']q', '<cmd>cn<CR>',
-  { noremap = true, silent = true, desc = "Go to previous quickfix item" })
-vim.api.nvim_set_keymap('n', '[q', '<cmd>cp<CR>', { noremap = true, silent = true, desc = "Go to next quickfix item" })
+  { noremap = true, silent = true, desc = "Go to next quickfix item" })
+vim.api.nvim_set_keymap('n', '[q', '<cmd>cp<CR>', { noremap = true, silent = true, desc = "Go to previous quickfix item" })
+vim.api.nvim_set_keymap('n', ']b', '<cmd>bn<CR>',
+  { noremap = true, silent = true, desc = "Go to next buffer" })
+vim.api.nvim_set_keymap('n', '[b', '<cmd>bp<CR>', { noremap = true, silent = true, desc = "Go to previous buffer" })
 
 -- Diff keymap
 vim.api.nvim_set_keymap('n', '<leader>gw', '<cmd>Gwrite<CR>', { noremap = true, silent = true, desc = "Git write" })
