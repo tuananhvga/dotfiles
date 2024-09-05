@@ -61,6 +61,7 @@ return {
         'gopls',
         'cssls',
         'emmet_language_server',
+        'templ',
       },
       handlers = {
         default_setup,
