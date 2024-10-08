@@ -40,6 +40,19 @@ vim.keymap.set('n', '<leader>dy', function() vim.fn.setreg('+', vim.fn.expand('%
 
 -- Open tmux sessionizer
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>", { desc = "Open tmux sessionizer" })
+
+-- Open new tmux windows at current file's directory
 vim.keymap.set("n", "<leader>t", function()
-  vim.cmd("silent !tmux neww -c " .. vim.fn.expand('%:p:h'))
+  print(vim.inspect())
+  local curPath = vim.fn.expand('%:p:h')
+  if vim.fn.isdirectory(curPath) == 0 then
+    local oilEntry = require("oil").get_cursor_entry()
+    local oilPath = string.sub(curPath, 7)
+    if oilEntry.type == 'file' then
+      curPath = oilPath
+    else
+      curPath = oilPath .. '/' .. oilEntry.name
+    end
+  end
+  vim.cmd("silent !tmux neww -c " .. curPath)
 end, { desc = "Open new shell at current file's directory" })
