@@ -54,5 +54,6 @@ vim.keymap.set("n", "<leader>t", function()
       curPath = oilPath .. '/' .. oilEntry.name
     end
   end
-  vim.cmd("silent !tmux neww -c " .. curPath)
+  local curBasePath = vim.fs.basename(curPath)
+  vim.cmd("silent !tmux neww -c " .. curPath .. " -n " .. curBasePath)
 end, { desc = "Open new shell at current file's directory" })
