@@ -1,3 +1,19 @@
+local open_tmux_window = function()
+  print(vim.inspect())
+  local curPath = vim.fn.expand('%:p:h')
+  if vim.fn.isdirectory(curPath) == 0 then
+    local oilEntry = require("oil").get_cursor_entry()
+    local oilPath = string.sub(curPath, 7)
+    if oilEntry == nil or oilEntry.type == 'file' then
+      curPath = oilPath
+    else
+      curPath = oilPath .. '/' .. oilEntry.name
+    end
+  end
+  local curBasePath = vim.fs.basename(curPath)
+  vim.cmd("silent !tmux neww -c " .. curPath .. " -n " .. curBasePath)
+end
+
 vim.g.mapleader = ","
 vim.keymap.set("n", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "Reformat code" })
 
@@ -42,18 +58,4 @@ vim.keymap.set('n', '<leader>dy', function() vim.fn.setreg('+', vim.fn.expand('%
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>", { desc = "Open tmux sessionizer" })
 
 -- Open new tmux windows at current file's directory
-vim.keymap.set("n", "<leader>t", function()
-  print(vim.inspect())
-  local curPath = vim.fn.expand('%:p:h')
-  if vim.fn.isdirectory(curPath) == 0 then
-    local oilEntry = require("oil").get_cursor_entry()
-    local oilPath = string.sub(curPath, 7)
-    if oilEntry.type == 'file' then
-      curPath = oilPath
-    else
-      curPath = oilPath .. '/' .. oilEntry.name
-    end
-  end
-  local curBasePath = vim.fs.basename(curPath)
-  vim.cmd("silent !tmux neww -c " .. curPath .. " -n " .. curBasePath)
-end, { desc = "Open new shell at current file's directory" })
+vim.keymap.set("n", "<leader>t", open_tmux_window , { desc = "Open new shell at current file's directory" })
