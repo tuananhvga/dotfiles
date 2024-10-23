@@ -34,5 +34,7 @@ foreground = "0xc8d3f5"
 family = "HackNerdFont"
 style = "Regular"
 
-[shell]
+[terminal]
+
+[terminal.shell]
 program = "/usr/bin/zsh"
