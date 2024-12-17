@@ -54,8 +54,6 @@ return {
         'lua_ls',
         'clangd',
         'bashls',
-        'tsserver',
-        'bufls',
         'html',
         'eslint',
         'gopls',
