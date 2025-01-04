@@ -19,6 +19,7 @@
           - man
           - tree
           - busybox
+          - zsh
           # needed for fnm
           - unzip
           - fd

@@ -1,4 +1,4 @@
-sudo pacman -S ansible ansible-core
+sudo pacman -Sy ansible ansible-core
 cd ~/dotfiles/ansible
 sudo ansible-playbook sudo.yaml
 ansible-playbook home.yaml
