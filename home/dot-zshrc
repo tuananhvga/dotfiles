@@ -133,3 +133,4 @@ fi
 if which pnpm > /dev/null; then
   alias p="pnpm";
 fi
+alias c="clear"
