@@ -58,4 +58,4 @@ vim.keymap.set('n', '<leader>dy', function() vim.fn.setreg('+', vim.fn.expand('%
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>", { desc = "Open tmux sessionizer" })
 
 -- Open new tmux windows at current file's directory
-vim.keymap.set("n", "<leader>t", open_tmux_window , { desc = "Open new shell at current file's directory" })
+vim.keymap.set("n", "<leader>e", open_tmux_window , { desc = "Open new shell at current file's directory" })
