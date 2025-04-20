@@ -18,11 +18,15 @@ return {
     copilot = {
       endpoint = "https://api.githubcopilot.com",
       model = "gpt-4o-2024-08-06",
-      proxy = nil,          -- [protocol://]host[:port] Use this proxy
+      proxy = nil,            -- [protocol://]host[:port] Use this proxy
       allow_insecure = false, -- Allow insecure server connections
-      timeout = 30000,      -- Timeout in milliseconds
+      timeout = 30000,        -- Timeout in milliseconds
       temperature = 0,
       max_tokens = 20480,
+    },
+    cursor_applying_provider = 'copilot', -- or "openai"
+    behaviour = {
+      enable_cursor_planning_mode = true, -- enable cursor planning mode!
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
