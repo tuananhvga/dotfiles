@@ -125,7 +125,10 @@ return {
       }),
       snippet = {
         expand = function(args)
-          require('luasnip').lsp_expand(args.body)
+          local ls = require('luasnip')
+          ls.lsp_expand(args.body)
+          vim.keymap.set({ "i", "s" }, "<C-L>", function() ls.jump(1) end, { silent = true })
+          vim.keymap.set({ "i", "s" }, "<C-H>", function() ls.jump(-1) end, { silent = true })
         end,
       },
     })
