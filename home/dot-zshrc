@@ -134,6 +134,11 @@ if [ -d "$HOME/apps" ]; then
   export PATH="$HOME/apps:$PATH"
 fi
 
+# setup env
+if [ -f "$HOME/.ssh/setup_env.sh" ]; then
+    source "$HOME/.ssh/setup_env.sh"
+fi
+
 # pnpm alias
 if which pnpm > /dev/null; then
   alias p="pnpm";
