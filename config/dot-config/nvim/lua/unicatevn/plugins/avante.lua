@@ -6,23 +6,29 @@ return {
     -- add any opts here
     -- for example
     provider = "copilot",
-    openai = {
-      endpoint = "https://api.openai.com/v1",
-      model = "gpt-4o",             -- your desired model (or use gpt-4o, etc.)
-      -- model = "gpt-3.5-turbo",             -- your desired model (or use gpt-4o, etc.)
-      timeout = 30000,              -- Timeout in milliseconds, increase this for reasoning models
-      temperature = 0,
-      max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
-      --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
-    },
-    copilot = {
-      endpoint = "https://api.githubcopilot.com",
-      model = "gpt-4o-2024-08-06",
-      proxy = nil,            -- [protocol://]host[:port] Use this proxy
-      allow_insecure = false, -- Allow insecure server connections
-      timeout = 30000,        -- Timeout in milliseconds
-      temperature = 0,
-      max_tokens = 20480,
+    providers = {
+      openai = {
+        endpoint = "https://api.openai.com/v1",
+        model = "gpt-4o",               -- your desired model (or use gpt-4o, etc.)
+        -- model = "gpt-3.5-turbo",             -- your desired model (or use gpt-4o, etc.)
+        timeout = 30000,                -- Timeout in milliseconds, increase this for reasoning models
+        extra_request_body = {
+          max_completion_tokens = 8192, -- Increase this to include reasoning tokens (for reasoning models)
+          temperature = 0,
+        }
+        --reasoning_effort = "medium", -- low|medium|high, only used for reasoning models
+      },
+      copilot = {
+        endpoint = "https://api.githubcopilot.com",
+        model = "gpt-4o-2024-08-06",
+        proxy = nil,            -- [protocol://]host[:port] Use this proxy
+        allow_insecure = false, -- Allow insecure server connections
+        timeout = 30000,        -- Timeout in milliseconds
+        extra_request_body = {
+          max_tokens = 20480,
+          temperature = 0,
+        }
+      }
     },
     cursor_applying_provider = 'copilot', -- or "openai"
     behaviour = {
