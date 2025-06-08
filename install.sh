@@ -1,4 +1,5 @@
-sudo pacman -Sy --no-confirm ansible ansible-core
+sudo pacman -Suy --noconfirm
+sudo pacman -Sy --noconfirm ansible ansible-core
 cd ~/dotfiles/ansible
 sudo ansible-playbook sudo.yaml
 ansible-playbook home.yaml
