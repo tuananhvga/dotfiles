@@ -3,3 +3,5 @@
 	name = Unicatevn
 [pull]
 	rebase = true
+[credential]
+	helper = store
