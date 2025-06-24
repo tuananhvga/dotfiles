@@ -139,6 +139,11 @@ if [ -f "$HOME/.ssh/setup_env.sh" ]; then
     source "$HOME/.ssh/setup_env.sh"
 fi
 
+# setup env
+if [ -f "$HOME/.cargo/env" ]; then
+    source "$HOME/.cargo/env"
+fi
+
 # pnpm alias
 if which pnpm > /dev/null; then
   alias p="pnpm";
