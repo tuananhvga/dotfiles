@@ -182,5 +182,6 @@ return {
       },
     })
     vim.keymap.set('n', '<leader>n', "<cmd>Oil<CR>", { desc = "Invoke oil" })
+    vim.keymap.set('n', '-', "<cmd>Oil<CR>", { desc = "Invoke oil" })
   end
 }
