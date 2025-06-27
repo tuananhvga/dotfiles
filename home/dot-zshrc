@@ -117,6 +117,12 @@ case ":$PATH:" in
 esac
 # pnpm end
 
+# protoc
+PROTOC_PATH="$HOME/apps/protoc/bin"
+if [ -d "$PROTOC_PATH" ]; then
+  export PATH="$HOME/apps/protoc/bin:$PATH"
+fi
+
 # fnm
 FNM_PATH="$HOME/.local/share/fnm"
 if [ -d "$FNM_PATH" ]; then
