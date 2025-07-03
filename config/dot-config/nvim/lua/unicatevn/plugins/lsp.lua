@@ -84,6 +84,13 @@ return {
       }
     })
 
+    require('lspconfig').gopls.setup {
+      settings = {
+        gopls = {
+          standaloneTags = { "ignore", "mage" },
+        },
+      },
+    }
     require('lspconfig').emmet_language_server.setup({
       filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "templ" },
       -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
