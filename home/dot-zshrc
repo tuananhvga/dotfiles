@@ -123,13 +123,6 @@ if [ -d "$PROTOC_PATH" ]; then
   export PATH="$HOME/apps/protoc/bin:$PATH"
 fi
 
-# fnm
-FNM_PATH="$HOME/.local/share/fnm"
-if [ -d "$FNM_PATH" ]; then
-  export PATH="$HOME/.local/share/fnm:$PATH"
-  eval "`fnm env`"
-fi
-
 # go bin
 if [ -d "$HOME/go/bin" ]; then
   export PATH="$HOME/go/bin:$PATH"
@@ -138,6 +131,9 @@ fi
 # apps
 if [ -d "$HOME/apps" ]; then
   export PATH="$HOME/apps:$PATH"
+fi
+if [ -d "/opt/homebrew/bin" ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
 fi
 
 # setup env
@@ -155,3 +151,9 @@ if which pnpm > /dev/null; then
   alias p="pnpm";
 fi
 alias c="clear"
+
+# fnm
+FNM_PATH="/opt/homebrew/opt/fnm/bin"
+if [ -d "$FNM_PATH" ]; then
+  eval "`fnm env`"
+fi
