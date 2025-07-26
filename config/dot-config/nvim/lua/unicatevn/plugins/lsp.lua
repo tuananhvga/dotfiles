@@ -53,13 +53,11 @@ return {
       ensure_installed = {
         'lua_ls',
         'clangd',
-        'bashls',
         'html',
         'eslint',
         'gopls',
         'cssls',
         'emmet_language_server',
-        'templ',
       },
       handlers = {
         default_setup,
