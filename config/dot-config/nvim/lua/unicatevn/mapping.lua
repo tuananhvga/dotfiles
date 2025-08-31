@@ -59,3 +59,5 @@ vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux_sessionizer<CR>", { de
 
 -- Open new tmux windows at current file's directory
 vim.keymap.set("n", "<leader>e", open_tmux_window , { desc = "Open new shell at current file's directory" })
+
+vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
