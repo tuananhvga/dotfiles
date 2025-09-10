@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
+folders=$(ls -d ~/dev/*)
+
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(fd . ~/dev ~/dev/personal ~/dev/public ~/ --min-depth 1 --max-depth 1 -td -tl | fzf)
+    selected=$(fd . ~/dev $folders ~/ --min-depth 1 --max-depth 1 -td -tl | fzf)
 fi
 
 if [[ -z $selected ]]; then
