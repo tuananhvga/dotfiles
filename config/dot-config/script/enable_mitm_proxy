@@ -1,0 +1,7 @@
+export HTTP_PROXY=http://localhost:8080
+export HTTPS_PROXY=http://localhost:8080
+export WS_PROXY=http://127.0.0.1:8080
+export WSS_PROXY=http://127.0.0.1:8080
+export GLOBAL_AGENT_HTTP_PROXY=http://127.0.0.1:8080
+export CGI_HTTP_PROXY=http://127.0.0.1:8080
+export NODE_EXTRA_CA_CERTS="$HOME/.mitmproxy/mitmproxy-ca-cert.pem"
