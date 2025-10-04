@@ -1,0 +1,7 @@
+export HTTP_PROXY=""
+export HTTPS_PROXY=""
+export WS_PROXY=""
+export WSS_PROXY=""
+export GLOBAL_AGENT_HTTP_PROXY=""
+export CGI_HTTP_PROXY=""
+export NODE_EXTRA_CA_CERTS=""
