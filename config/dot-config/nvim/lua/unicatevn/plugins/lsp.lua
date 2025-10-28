@@ -59,6 +59,7 @@ return {
         'cssls',
         'emmet_language_server',
       },
+      automatic_enable = false,
       handlers = {
         default_setup,
       },
