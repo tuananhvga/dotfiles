@@ -15,7 +15,6 @@ local open_tmux_window = function()
 end
 
 vim.g.mapleader = ","
-vim.keymap.set("n", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "Reformat code" })
 
 -- Copy to clipboard
 vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true })
