@@ -15,7 +15,6 @@ local open_tmux_window = function()
 end
 
 vim.g.mapleader = ","
-vim.keymap.set("n", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "Reformat code" })
 
 -- Copy to clipboard
 vim.api.nvim_set_keymap('v', '<leader>y', '"+y', { noremap = true, silent = true })
@@ -50,8 +49,9 @@ vim.keymap.set('n', '<leader>dj', function()
   vim.cmd('diffupdate')
 end, { desc = "Diff get merge branch" })
 
-vim.keymap.set('n', '<leader>py', function() vim.fn.setreg('+', vim.fn.expand('%:p')) end, { desc = 'Copy file path' })
-vim.keymap.set('n', '<leader>dy', function() vim.fn.setreg('+', vim.fn.expand('%:p:h')) end,
+vim.keymap.set('n', '<leader>pa', function() vim.fn.setreg('+', vim.fn.expand('%:p')) end, { desc = 'Copy file path' })
+vim.keymap.set('n', '<leader>pr', function() vim.fn.setreg('+', vim.fn.expand('%:.')) end, { desc = 'Copy file relative path' })
+vim.keymap.set('n', '<leader>pd', function() vim.fn.setreg('+', vim.fn.expand('%:p:h')) end,
   { desc = 'Copy directory path' })
 
 -- Open tmux sessionizer

@@ -40,6 +40,8 @@ return {
       end
     })
 
+    vim.keymap.set("n", "<leader>fm", function() vim.lsp.buf.format { async = true } end, { desc = "Reformat code" })
+
     local lsp_capabilities = require('cmp_nvim_lsp').default_capabilities()
 
     local default_setup = function(server)
@@ -94,6 +96,20 @@ return {
         },
       },
     }
+
+    local base_on_attach = vim.lsp.config.eslint.on_attach
+    vim.lsp.config("eslint", {
+      on_attach = function(client, bufnr)
+        if not base_on_attach then return end
+
+        base_on_attach(client, bufnr)
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          buffer = bufnr,
+          command = "LspEslintFixAll",
+        })
+      end,
+    })
+
     require('lspconfig').emmet_language_server.setup({
       filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "templ" },
       -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
