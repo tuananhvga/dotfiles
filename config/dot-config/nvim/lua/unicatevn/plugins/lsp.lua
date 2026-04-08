@@ -70,7 +70,7 @@ return {
         default_setup,
       },
     })
-    require('lspconfig').lua_ls.setup({
+    vim.lsp.config('.lua_ls', {
       capabilities = lsp_capabilities,
       settings = {
         Lua = {
@@ -89,13 +89,13 @@ return {
       }
     })
 
-    require('lspconfig').gopls.setup {
+    vim.lsp.config('gopls', {
       settings = {
         gopls = {
           standaloneTags = { "ignore", "mage" },
         },
       },
-    }
+    })
 
     local base_on_attach = vim.lsp.config.eslint.on_attach
     vim.lsp.config("eslint", {
@@ -110,7 +110,7 @@ return {
       end,
     })
 
-    require('lspconfig').emmet_language_server.setup({
+    vim.lsp.config('emmet_language_server', {
       filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact", "templ" },
       -- Read more about this options in the [vscode docs](https://code.visualstudio.com/docs/editor/emmet#_emmet-configuration).
       -- **Note:** only the options listed in the table are supported.

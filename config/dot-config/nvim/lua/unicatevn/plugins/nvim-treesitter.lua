@@ -2,7 +2,7 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   config = function(_)
-    require 'nvim-treesitter.configs'.setup {
+    require 'nvim-treesitter.config'.setup {
       -- A list of parser names, or "all" (the five listed parsers should always be installed)
       ensure_installed = { "javascript", "typescript", "go", "c", "cpp", "lua",
         "query" },
@@ -13,7 +13,7 @@ return {
       incremental_selection = {
         enable = true,
         keymaps = {
-          init_selection = "<C-x>",           -- set to `false` to disable one of the mappings
+          init_selection = "<C-x>", -- set to `false` to disable one of the mappings
           node_incremental = "<C-Up>",
           scope_incremental = "<C-s>",
           node_decremental = "<C-Down>",
@@ -78,7 +78,7 @@ return {
         },
         move = {
           enable = true,
-          set_jumps = true,           -- whether to set jumps in the jumplist
+          set_jumps = true, -- whether to set jumps in the jumplist
           goto_next_start = {
             ["]f"] = "@function.outer",
             ["]]"] = { query = "@parameter.outer", desc = "Next class start" },
