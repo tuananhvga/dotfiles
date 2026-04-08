@@ -61,11 +61,7 @@ return {
         'cssls',
         'emmet_language_server',
       },
-      automatic_enable = {
-        exclude = {
-          "gopls"
-        }
-      },
+      automatic_enable = true,
       handlers = {
         default_setup,
       },
